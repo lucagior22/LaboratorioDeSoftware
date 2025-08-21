@@ -1,4 +1,4 @@
-package ejerciciouno;
+package ejerciciodos;
 
 public class Vacuna {
 
