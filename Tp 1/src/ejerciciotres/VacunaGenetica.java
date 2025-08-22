@@ -1,10 +1,11 @@
-package ejerciciodos;
+package ejerciciotres;
 
 public class VacunaGenetica extends Vacuna{
     private float temperaturaMinima;
     private float temperaturaMaxima;
 
-    public VacunaGenetica(float temperaturaMinima, float temperaturaMaxima) {
+    public VacunaGenetica(float temperaturaMinima, float temperaturaMaxima, String marca, String paisOrigen, String enfermedad, int cantDosis) {
+        super(marca, paisOrigen, enfermedad, cantDosis);
         this.temperaturaMinima = temperaturaMinima;
         this.temperaturaMaxima = temperaturaMaxima;
     }

@@ -1,10 +1,11 @@
-package ejerciciodos;
+package ejerciciotres;
 
 public class VacunaSubunidadAntigenica extends Vacuna {
     private int cantAntigenos;
     private String tipoProceso;
 
-    public VacunaSubunidadAntigenica(int cantAntigenos, String tipoProceso) {
+    public VacunaSubunidadAntigenica(int cantAntigenos, String tipoProceso, String marca, String paisOrigen, String enfermedad, int cantDosis) {
+        super(marca, paisOrigen, enfermedad, cantDosis);
         this.cantAntigenos = cantAntigenos;
         this.tipoProceso = tipoProceso;
     }
