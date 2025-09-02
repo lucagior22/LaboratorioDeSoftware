@@ -1,4 +1,4 @@
-package ejerciciotres.puntodos;
+package TP1.ejerciciotres.puntodos;
 
 import java.io.File;
 public class MiArchivo extends File {

@@ -1,4 +1,4 @@
-package ejerciciotres;
+package TP1.ejerciciouno;
 
 public class Vacuna {
 

@@ -1,4 +1,4 @@
-package ejerciciouno;
+package TP1.ejerciciouno;
 
 import java.util.ArrayList;
 

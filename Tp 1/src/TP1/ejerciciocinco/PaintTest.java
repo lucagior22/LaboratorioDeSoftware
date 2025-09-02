@@ -1,4 +1,4 @@
-package ejerciciocinco;
+package TP1.ejerciciocinco;
 
 public class PaintTest {
     // No entendí bien la consigna, pero este main sirve para probar todo igualmente

@@ -1,4 +1,4 @@
-package ejerciciotres;
+package TP1.ejerciciotres;
 
 public class VacunaPatogenoIntegro extends Vacuna {
     private String nombreVirus;

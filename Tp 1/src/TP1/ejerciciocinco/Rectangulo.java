@@ -1,4 +1,4 @@
-package ejerciciocinco;
+package TP1.ejerciciocinco;
 
 public class Rectangulo extends FiguraGeometrica {
     private int alto;

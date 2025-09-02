@@ -1,4 +1,4 @@
-package ejerciciocinco;
+package TP1.ejerciciocinco;
 
 public class Circulo extends FiguraGeometrica {
     private int radio;

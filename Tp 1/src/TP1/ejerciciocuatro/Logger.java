@@ -1,4 +1,4 @@
-package ejerciciocuatro;
+package TP1.ejerciciocuatro;
 
 public class Logger {
     private static Logger instance;

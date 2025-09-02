@@ -1,4 +1,4 @@
-package ejerciciotres;
+package TP1.ejerciciotres;
 
 public class VacunaGenetica extends Vacuna{
     private float temperaturaMinima;

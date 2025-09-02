@@ -1,4 +1,4 @@
-package ejerciciocinco;
+package TP1.ejerciciocinco;
 
 public abstract class FiguraGeometrica {
     private String color;

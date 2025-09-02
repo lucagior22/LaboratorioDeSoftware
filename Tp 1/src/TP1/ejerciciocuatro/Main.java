@@ -1,4 +1,4 @@
-package ejerciciocuatro;
+package TP1.ejerciciocuatro;
 
 public class Main {
     public static void main(String[] args) {
