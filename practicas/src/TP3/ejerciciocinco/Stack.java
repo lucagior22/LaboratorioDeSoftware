@@ -1,10 +1,10 @@
-package TP3.ejerciciouno;
+package TP3.ejerciciocinco;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Stack implements Iterable{
-    private java.util.ArrayList items;
+    private ArrayList items;
 
     public Stack() {
         items = new ArrayList();
@@ -25,21 +25,18 @@ public class Stack implements Iterable{
     }
 
     public Iterator iterator() {
-        return new StackIterator();
-    }
+        return new Iterator() {
+            private int index = items.size() - 1;
 
-    private class StackIterator implements Iterator {
-        private int index = items.size() - 1;
+            public boolean hasNext() {
+                return index >= 0;
+            }
 
-
-        public boolean hasNext() {
-            return index >= 0;
-        }
-
-        public Object next() {
-            Object item = items.get(index);
-            index--;
-            return item;
-        }
+            public Object next() {
+                Object item = items.get(index);
+                index--;
+                return item;
+            }
+        };
     }
 }
