@@ -1,5 +1,7 @@
 package TP3.ejerciciodos;
 
+import java.util.Scanner;
+
 import static java.lang.Math.pow;
 
 class InnerStatic {
@@ -8,8 +10,10 @@ class InnerStatic {
     static class Circulo {
         static double radio;
 
-        static void setRadio(double r) {
-            radio = r;
+        static {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Ingrese el radio deseado: ");
+            radio = scanner.nextDouble();
         }
 
         static double getArea() {
