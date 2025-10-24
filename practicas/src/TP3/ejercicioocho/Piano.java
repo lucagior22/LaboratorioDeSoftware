@@ -9,7 +9,7 @@ public class Piano implements InstrumentoMusical{
 
     @Override
     public void hacerSonar(Notas n, int duracion) {
-        System.out.println("Suena piano en " + n + " con " + duracion + " de duración");
+        System.out.println("Suena piano en " + n.getCifradoAmericano() + " con " + duracion + " de duración");
     }
 
     @Override

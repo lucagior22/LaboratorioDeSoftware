@@ -8,4 +8,14 @@ public enum Notas {
     Notas(String cifradoAmericano) {
         this.cifradoAmericano = cifradoAmericano;
     }
+
+    public String getCifradoAmericano() {
+        return cifradoAmericano;
+    }
+
+    public void setCifradoAmericano(String cifradoAmericano) {
+        this.cifradoAmericano = cifradoAmericano;
+    }
+
+
 }

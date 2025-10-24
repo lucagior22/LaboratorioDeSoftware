@@ -45,6 +45,22 @@ public class FitoPaez {
                 2,
         };
 
+        System.out.println("Primer cancion: \n");
         fito.tocarCancion(notas, duraciones);
+
+        Notas La = Notas.LA;
+
+        La.setCifradoAmericano("J");
+        System.out.println("Segunda cancion: \n");
+
+        Notas[] notasB = {
+                Notas.LA,
+                Notas.SOL,
+                Notas.FA,
+                Notas.SI,
+                Notas.LA,
+                Notas.FA
+        };
+        fito.tocarCancion(notasB, duraciones);
     }
 }
