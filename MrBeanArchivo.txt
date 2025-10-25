@@ -1,0 +1,7 @@
+<nombreClase>Bean</nombreClase>
+<nombreAtributo>name</nombreAtributo>
+<nombreValor>Mr Bean</nombreValor>
+<nombreAtributo>age</nombreAtributo>
+<nombreValor>60</nombreValor>
+<nombreAtributo>iq</nombreAtributo>
+<nombreValor>40</nombreValor>
