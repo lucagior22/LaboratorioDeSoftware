@@ -1,0 +1,4 @@
+[2025-10-27 16:44:53] Cliente conectado desde 127.0.0.1
+[2025-10-27 16:44:53] Cliente conectado desde 127.0.0.1
+[2025-10-27 16:45:11] Cliente conectado desde 127.0.0.1
+[2025-10-27 16:45:11] Cliente conectado desde 127.0.0.1

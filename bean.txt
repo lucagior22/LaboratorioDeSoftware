@@ -1,0 +1,4 @@
+<nombreClase>Bean</nombreClase>
+<nombreAtributo>valor</nombreAtributo>
+<nombreAtributo>valor2</nombreAtributo>
+<nombreAtributo>valor3</nombreAtributo>
