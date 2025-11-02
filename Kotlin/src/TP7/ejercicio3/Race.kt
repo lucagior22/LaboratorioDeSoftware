@@ -1,66 +1,70 @@
-package TP7.ejercicio3
+    package TP7.ejercicio3
 
-import java.util.concurrent.Callable
-import java.util.concurrent.Executors
-import java.util.concurrent.Future
-import kotlin.random.Random
+    import java.time.LocalDateTime
+    import java.util.concurrent.Callable
+    import java.util.concurrent.Executors
+    import java.util.concurrent.Future
+    import kotlin.random.Random
 
-class Abandono : Exception("Abandoné")
+    class Abandono : Exception("Abandoné")
 
-fun main() {
-    println("=== Simulación de Carrera de 100 metros ===\n")
+    fun main() {
+        simularCarrera(5, 5)
+    }
 
-    // Prueba con pool de 5 threads
-    println("--- Pool de 5 threads ---")
-    simularCarrera(5, 5)
+    fun simularCarrera(poolSize: Int, numCorredores: Int) {
+        val executor = Executors.newFixedThreadPool(poolSize)
+        val futures = mutableListOf<Future<ResultadoCarrera>>()
 
-    Thread.sleep(2000) // Pausa entre simulaciones
+        val tiempoInicio = System.nanoTime()
 
-    // Prueba con pool de 3 threads
-    println("\n--- Pool de 3 threads ---")
-    simularCarrera(3, 5)
-}
+        // Crear corredores como Callable
+        for (i in 1..numCorredores) {
+            val corredor = Callable<ResultadoCarrera> {
+                try {
+                    for (mts in 1..100) {
+                        Thread.sleep(50)
 
-fun simularCarrera(poolSize: Int, numCorredores: Int) {
-    val executor = Executors.newFixedThreadPool(poolSize)
-    val futures = mutableListOf<Future<String>>()
-
-    // Crear corredores como Callable
-    for (i in 1..numCorredores) {
-        val corredor = Callable<String> {
-            try {
-                for (mts in 1..100) {
-                    println("Corredor $i: $mts metros")
-                    Thread.sleep(50) // Simular tiempo de carrera
-
-                    // Probabilidad de abandono
-                    val concentracion = Random.nextInt(0, 1000)
-                    if (concentracion == 0) {
-                        throw Abandono()
-                    } else if (concentracion < 5) {
-                        return@Callable "Corredor $i: Abandoné a los $mts metros"
+                        // Probabilidad de abandono
+                        val concentracion = Random.nextInt(0, 500)
+                        if (concentracion == 0) {
+                            throw Abandono()
+                        }
                     }
+                    println("Soy $i y terminé la carrera!")
+                    ResultadoCarrera(i, (System.nanoTime() - tiempoInicio)/1000000)
+                } catch (e: Abandono) {
+                    throw RuntimeException(e)
                 }
-                "Corredor $i: ¡Terminé la carrera!"
-            } catch (e: Abandono) {
-                "Corredor $i: Abandoné por lesión"
+            }
+
+            futures.add(executor.submit(corredor))
+        }
+
+        var resultados = ArrayList<ResultadoCarrera>()
+
+        futures.forEachIndexed { index, future ->
+            try {
+                val resultado = future.get()
+                resultados.add(resultado)
+            } catch (e: Exception) {
+                println("Corredor ${index + 1}: Error - ${e.message}")
+                resultados.add(ResultadoCarrera(index + 1, null))
             }
         }
 
-        // Ejecutar y guardar el Future
-        futures.add(executor.submit(corredor))
-    }
+        resultados.sortBy { it.timestamp ?: Long.MAX_VALUE }
 
-    // Esperar resultados y mostrarlos
-    println("\n--- Resultados ---")
-    futures.forEachIndexed { index, future ->
-        try {
-            val resultado = future.get() // Bloquea hasta obtener resultado
-            println(resultado)
-        } catch (e: Exception) {
-            println("Corredor ${index + 1}: Error - ${e.message}")
+        println("--- Podio ---")
+        for ((index, r)in resultados.withIndex()) {
+            if (r.timestamp != null) {
+                println("${index + 1}: el Thread ${r.id} a las ${r.timestamp}")
+            } else {
+                println("el Thread ${r.id} abandonó! :(")
+            }
         }
+
+        executor.shutdown()
     }
 
-    executor.shutdown()
-}
+    class ResultadoCarrera(val id : Int, val timestamp: Long?)
