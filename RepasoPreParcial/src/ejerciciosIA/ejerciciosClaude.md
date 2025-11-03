@@ -92,4 +92,38 @@ Modifique cualquiera de las versiones anteriores para que:
 
 ---
 
-¿Con cuál versión querés que empiece? ¿O necesitás que te dé código de ejemplo para alguna?
+# Ejercicio 2 Reversionado: Procesamiento de Pedidos
+
+**Objetivo:** Practicar Executors con `Callable` y `Future`.
+
+---
+
+## **Consigna**
+
+Sistema de pedidos de restaurante. Cada pedido:
+- Tarda entre 1-5 segundos en prepararse
+- Calcula costo (cantidad items × precio aleatorio $500-$2000)
+- Retorna: ID, tiempo preparación, costo total
+
+---
+
+## **Requisitos:**
+
+```kotlin
+data class ResultadoPedido(
+    val id: Int,
+    val tiempoMs: Long,
+    val costo: Double
+)
+```
+
+1. **Cree 10 pedidos** con `Callable<ResultadoPedido>`
+2. **Use** `Executors.newFixedThreadPool(5)` y luego pruebe con 3
+3. **Obtenga resultados** con `future.get()`
+4. **Muestre resumen:**
+    - Tiempo promedio de preparación
+    - Costo total de todos los pedidos
+
+---
+
+**Pregunta:** ¿Qué ventaja tiene `Callable` sobre `Runnable` en este caso?
