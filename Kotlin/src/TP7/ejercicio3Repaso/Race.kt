@@ -1,13 +1,8 @@
 package TP7.ejercicio3Repaso
 
-import java.sql.Timestamp
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.Arrays
-import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
-import kotlin.jvm.Throws
 import kotlin.random.Random
 
 /*

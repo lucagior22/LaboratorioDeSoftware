@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Kotlin/Kotlin.iml" filepath="$PROJECT_DIR$/Kotlin/Kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/LaboratorioDeSoftware.iml" filepath="$PROJECT_DIR$/LaboratorioDeSoftware.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RepasoPreParcial/RepasoPreParcial.iml" filepath="$PROJECT_DIR$/RepasoPreParcial/RepasoPreParcial.iml" />
       <module fileurl="file://$PROJECT_DIR$/loggingutils/loggingutils.iml" filepath="$PROJECT_DIR$/loggingutils/loggingutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>

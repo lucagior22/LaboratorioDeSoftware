@@ -30,7 +30,8 @@ public class Contenedor {
                     exchange -> {
                         System.out.println("Iniciando handle");
                         InetSocketAddress clientIP = exchange.getRemoteAddress();
-                        try (FileWriter fileWriter = new FileWriter(loggingFilePath, true)) {
+                        try {
+                            FileWriter fileWriter = new FileWriter(loggingFilePath, true);
                             fileWriter.write(LocalDateTime.now() + " ; ClientIP: " + clientIP.getHostString() + "\n");
                         } catch (IOException e) {
                             System.out.println("Error al escribir en el log: " + e.getMessage());
