@@ -4,6 +4,7 @@
     import java.util.concurrent.Callable
     import java.util.concurrent.Executors
     import java.util.concurrent.Future
+    import java.util.concurrent.TimeUnit
     import kotlin.random.Random
 
     class Abandono : Exception("Abandoné")
@@ -45,7 +46,7 @@
 
         futures.forEachIndexed { index, future ->
             try {
-                val resultado = future.get()
+                val resultado = future.get(100, TimeUnit.SECONDS)
                 resultados.add(resultado)
             } catch (e: Exception) {
                 println("Corredor ${index + 1}: Error - ${e.message}")
